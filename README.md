@@ -1,13 +1,13 @@
-# FutureFirst Reviews UI
+# Future Sight Reviews UI
 
-Production-oriented React + TypeScript frontend for uploading a reviews CSV and displaying backend-generated summaries.
+Production React + TypeScript frontend for uploading review data and displaying AI-generated summaries with follow-up chat.
 
 ## Tech Stack
 - React 18 + TypeScript
 - Vite 5
 - ESLint
 
-## Getting Started
+## Local Development
 1. Install dependencies:
    ```bash
    npm install
@@ -21,20 +21,31 @@ Production-oriented React + TypeScript frontend for uploading a reviews CSV and 
    npm run dev
    ```
 
+## Build
+```bash
+npm run build
+```
+
 ## Environment Variables
-- `VITE_API_BASE_URL`: Backend base URL. Default: `http://localhost:8000`
+- `VITE_API_BASE_URL`: Backend base URL.
+  - Default: `http://localhost:8000`
+  - Production: set this in your hosting provider’s environment configuration.
 
-## Implemented Flow
-- User uploads `.csv` file
-- Frontend sends `multipart/form-data` with `file` to:
-  - `POST /api/v1/reviews/summarize`
-- Loading state shown while API call is running
-- API `detail` message shown directly on failures
+## Runtime Flow
+- Upload a `.csv` file or provide a review URL.
+- Frontend calls:
+  - `POST /api/v1/reviews/summarize` with `multipart/form-data` (`file`)
+  - `POST /api/v1/reviews/scrape-summarize` with JSON (`url`)
 - On success, UI renders:
-  - `summary`
-  - `total_reviews`
-  - UI renders AI chat interface
+  - `summary`, `sentiment`, `key_themes`, `common_issues`, `stats`
+  - Chat interface for follow-up questions
 
-## Backend References
+## Deploying to Render
+1. Build command: `npm run build`
+2. Publish directory: `dist`
+3. Environment:
+   - Set `VITE_API_BASE_URL` to your backend URL (for example, `https://your-backend.onrender.com`).
+
+## Backend References (Local)
 - Swagger: `http://localhost:8000/docs`
 - ReDoc: `http://localhost:8000/redoc`

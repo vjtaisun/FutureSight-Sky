@@ -8,6 +8,7 @@ export interface ChatMessage {
 
 export interface ChatRequestPayload {
   message: string;
+  csv_id?: string;
   previous_response_id?: string;
   model: string;
   temperature: number;
