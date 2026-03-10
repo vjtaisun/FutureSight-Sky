@@ -57,10 +57,10 @@ export function ReviewSummaryPage() {
   return (
     <main className="page-shell">
       <header className="page-header">
+        <img className="brand-logo" src={futureSightLogo} alt="FutureSight logo" />
         <div className="page-header-copy">
           <h1 className="page-title">ReviewLens AI</h1>
         </div>
-        <img className="brand-logo" src={futureSightLogo} alt="FutureSight logo" />
       </header>
 
       <section className="upload-hero">
