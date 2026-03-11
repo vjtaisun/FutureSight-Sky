@@ -37,7 +37,8 @@ npm run build
   - `POST /api/v1/reviews/summarize` with `multipart/form-data` (`file`)
   - `POST /api/v1/reviews/scrape-summarize` with JSON (`url`)
 - On success, UI renders:
-  - `summary`, `sentiment`, `key_themes`, `common_issues`, `stats`
+  - `columns`, `rows`, `stats` for CSV uploads
+  - `preview` (columns, rows, stats), plus `scraped_count` for URL scraping
   - Chat interface for follow-up questions
 
 ## Deploying to Render

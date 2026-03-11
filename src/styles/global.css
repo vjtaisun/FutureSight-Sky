@@ -88,7 +88,7 @@ body {
   display: grid;
   grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
   gap: 24px;
-  align-items: stretch;
+  align-items: start;
   min-height: 0;
 }
 
@@ -124,8 +124,10 @@ body {
 .page-left,
 .page-right {
   display: flex;
+  flex-direction: column;
   min-height: 0;
   height: 100%;
+  min-width: 0;
 }
 
 .upload-card {
@@ -375,6 +377,7 @@ button {
   gap: 18px;
   flex: 1;
   font-size: var(--font-size-sm);
+  min-width: 0;
 }
 
 .summary-header {
@@ -438,6 +441,99 @@ button {
   flex-direction: column;
   gap: 10px;
 }
+
+.columns-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.preview-table-wrap {
+  width: 100%;
+  overflow: auto;
+  border: 1px solid #e3ecef;
+  border-radius: 12px;
+  background: #ffffff;
+  max-height: 360px;
+}
+
+.preview-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--font-size-xs);
+}
+
+.preview-table th,
+.preview-table td {
+  padding: 8px 10px;
+  text-align: left;
+  border-bottom: 1px solid #edf2f5;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+.preview-table th {
+  background: #f6f8fb;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.7rem;
+  color: #556273;
+}
+
+.preview-table tbody tr:nth-child(even) {
+  background: #fbfdfe;
+}
+
+.empty-state {
+  margin: 0;
+  color: #7a8796;
+  font-size: var(--font-size-xs);
+}
+
+.cell-histogram {
+  margin-top: 6px;
+  height: 6px;
+  background: #eef2f6;
+  border-radius: 999px;
+  overflow: hidden;
+  min-width: 120px;
+}
+
+.cell-histogram-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #7cc4c2, #2e8b87);
+  border-radius: inherit;
+}
+
+.wordcloud-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.wordcloud-surface {
+  min-height: 380px;
+  border-radius: 20px;
+  background: radial-gradient(circle at center, rgba(255, 94, 76, 0.2), rgba(255, 255, 255, 0));
+  border: 1px dashed rgba(255, 94, 76, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.wordcloud-surface svg {
+  width: 100%;
+  height: 100%;
+}
+
+.wordcloud-caption {
+  margin: 0;
+  font-size: var(--font-size-xs);
+  color: #6b7785;
+}
+
 
 .sentiment-badge {
   padding: 2px 12px;

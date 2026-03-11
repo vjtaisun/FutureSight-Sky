@@ -1,6 +1,9 @@
 import { config } from '@/lib/config';
 import { parseJson } from '@/lib/http';
-import type { ReviewSummaryResponse } from '@/features/review-summary/types/reviewSummary';
+import type {
+  ReviewScrapeSummaryResponse,
+  ReviewSummaryResponse
+} from '@/features/review-summary/types/reviewSummary';
 
 const SUMMARIZE_PATH = '/api/v1/reviews/summarize';
 const SCRAPE_SUMMARIZE_PATH = '/api/v1/reviews/scrape-summarize';
@@ -14,10 +17,10 @@ export async function summarizeReviewsCsv(file: File): Promise<ReviewSummaryResp
     body: formData
   });
 
-  return parseJson<ReviewSummaryResponse>(response);
+  return parseJson<ReviewScrapeSummaryResponse>(response);
 }
 
-export async function summarizeReviewsUrl(url: string): Promise<ReviewSummaryResponse> {
+export async function summarizeReviewsUrl(url: string): Promise<ReviewScrapeSummaryResponse> {
   const response = await fetch(`${config.apiBaseUrl}${SCRAPE_SUMMARIZE_PATH}`, {
     method: 'POST',
     headers: {
