@@ -17,7 +17,7 @@ export async function summarizeReviewsCsv(file: File): Promise<ReviewSummaryResp
     body: formData
   });
 
-  return parseJson<ReviewScrapeSummaryResponse>(response);
+  return parseJson<ReviewSummaryResponse>(response);
 }
 
 export async function summarizeReviewsUrl(url: string): Promise<ReviewScrapeSummaryResponse> {
@@ -29,5 +29,5 @@ export async function summarizeReviewsUrl(url: string): Promise<ReviewScrapeSumm
     body: JSON.stringify({ url })
   });
 
-  return parseJson<ReviewSummaryResponse>(response);
+  return parseJson<ReviewScrapeSummaryResponse>(response);
 }
